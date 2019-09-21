@@ -119,7 +119,7 @@ func SetVoltage(device *serial.Port, value float32) error {
 	return nil
 }
 
-// SetCurrent will set the current with a resolution of 2 decimal places
+// SetCurrent will set the current limit with a resolution of 2 decimal places
 func SetCurrent(device *serial.Port, value float32) error {
 	response, err := writeSerial(device, fmt.Sprintf("awi%s", formatQuery(value)))
 	if err != nil {

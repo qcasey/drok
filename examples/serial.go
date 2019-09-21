@@ -39,20 +39,20 @@ func main() {
 	}
 	fmt.Printf("Output current limit set to: %f\n", current)
 
+	// Set output to true (enabling power output)
+	err = drok.SetOutput(drokDevice, true)
+	if err != nil {
+		panic(err.Error())
+	}
+
 	// Set output voltage to 12.3v
 	err = drok.SetVoltage(drokDevice, 12.3)
 	if err != nil {
 		panic(err.Error())
 	}
 
-	// Set output voltage to 0.5v
-	err = drok.SetVoltage(drokDevice, 0.5)
-	if err != nil {
-		panic(err.Error())
-	}
-
 	// Set output current limit to 0.95A
-	err = drok.SetVoltage(drokDevice, 0.95)
+	err = drok.SetCurrent(drokDevice, 0.95)
 	if err != nil {
 		panic(err.Error())
 	}

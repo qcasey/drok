@@ -30,14 +30,14 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Println("Output voltage limit set to: %f", voltage)
+	fmt.Printf("Output voltage limit set to: %f\n", voltage)
 
 	// Read output current limit
 	current, err := drok.ReadCurrent(drokDevice)
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Println("Output current limit set to: %f", current)
+	fmt.Printf("Output current limit set to: %f\n", current)
 
 	// Set output voltage to 12.3v
 	err = drok.SetVoltage(drokDevice, 12.3)

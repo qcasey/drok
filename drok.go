@@ -98,7 +98,7 @@ func parseOutput(data []byte) (float32, error) {
 // Cut off to 4 total digits
 func formatQuery(query float32) string {
 	//  Get in desired range & Cut off to 2 decimals
-	cf := fmt.Sprintf("%.2f", query*100)
+	cf := fmt.Sprintf("%.2f", query)
 
 	// Remove decimal
 	cf = strings.Replace(cf, ".", "", -1)

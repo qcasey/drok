@@ -32,6 +32,9 @@ func writeSerial(serialDevice *serial.Port, msg string) (float32, error) {
 		return 0, fmt.Errorf("Cannot send an empty message")
 	}
 
+	// Append newline to msg
+	msg = fmt.Sprintf("%s\n", msg)
+
 	_, err := serialDevice.Write([]byte(msg))
 	if err != nil {
 		return 0, err

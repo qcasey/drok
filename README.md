@@ -1,5 +1,6 @@
 # drok
 
+[![GoDoc](https://godoc.org/github.com/MrDoctorKovacic/drok?status.svg)](http://godoc.org/github.com/MrDoctorKovacic/drok)
 [![Build Status](https://travis-ci.org/MrDoctorKovacic/drok.svg?branch=master)](https://travis-ci.org/MrDoctorKovacic/drok) [![Go Report Card](https://goreportcard.com/badge/github.com/MrDoctorKovacic/drok)](https://goreportcard.com/report/github.com/MrDoctorKovacic/drok)
 
 A simple lib for interfacing with a variety of DROK Buck / Boost

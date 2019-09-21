@@ -9,32 +9,34 @@ https://benjames.io/2018/06/29/secret-uart-on-chinese-dcdc-converters/
 */
 package drok
 
+import "github.com/tarm/serial"
+
 // ReadVoltage will read the voltage with a resolution of 2 decimal places
-func ReadVoltage() (float32, error) {
+func ReadVoltage(device *serial.Port) (float32, error) {
 	return 0, nil
 }
 
 // ReadCurrent will read the current with a resolution of 2 decimal places
-func ReadCurrent() (float32, error) {
+func ReadCurrent(device *serial.Port) (float32, error) {
 	return 0, nil
 }
 
 // IsOn will return true if output is enabled
-func IsOn() (bool, error) {
+func IsOn(device *serial.Port) (bool, error) {
 	return false, nil
 }
 
 // SetVoltage will set the voltage with a resolution of 2 decimal places
-func SetVoltage(float32) error {
+func SetVoltage(device *serial.Port, value float32) error {
 	return nil
 }
 
 // SetCurrent will set the current with a resolution of 2 decimal places
-func SetCurrent(float32) error {
+func SetCurrent(device *serial.Port, value float32) error {
 	return nil
 }
 
 // SetOutput will turn on or off power supply output
-func SetOutput(bool) error {
+func SetOutput(device *serial.Port, value bool) error {
 	return nil
 }

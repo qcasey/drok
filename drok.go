@@ -33,7 +33,7 @@ func writeSerial(serialDevice *serial.Port, msg string) (float32, error) {
 	}
 
 	// Append newline to msg
-	msg = fmt.Sprintf("%s\n", msg)
+	msg = fmt.Sprintf("%s\r\n", msg)
 
 	_, err := serialDevice.Write([]byte(msg))
 	if err != nil {

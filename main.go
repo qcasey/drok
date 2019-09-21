@@ -86,7 +86,8 @@ func ReadVoltage(device *serial.Port) (float32, error) {
 	return response, nil
 }
 
-// ReadCurrent will read the output current with a resolution of 2 decimal places
+// ReadCurrent will read the output current with a resolution of 2 decimal places.
+// This is the current flowing through the PSU at any given time, not the current limit.
 func ReadCurrent(device *serial.Port) (float32, error) {
 	response, err := writeSerial(device, fmt.Sprintf("ari"))
 	if err != nil {

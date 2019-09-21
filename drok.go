@@ -63,8 +63,8 @@ func parseOutput(data []byte) (float32, error) {
 	if response[0] != '#' {
 		return 0, fmt.Errorf("Unknown response. Recieved: %s", response)
 	}
-	if len(response) != 5 && len(response) != 14 {
-		return 0, fmt.Errorf("Unknown response length of %d (expected 14 for read or 5 for write). Recieved: %s", len(response), response)
+	if len(response) != 7 && len(response) != 16 {
+		return 0, fmt.Errorf("Unknown response length of %d (expected 16 for read or 7 for write). Recieved: %s", len(response), response)
 	}
 
 	if response[1] == 'w' {

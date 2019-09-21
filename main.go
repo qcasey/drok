@@ -40,12 +40,12 @@ Example usage:
 		}
 		fmt.Printf("Output voltage limit set to: %f\n", voltage)
 
-		// Read output current limit
+		// Read output current
 		current, err := drok.ReadCurrent(drokDevice)
 		if err != nil {
 			panic(err.Error())
 		}
-		fmt.Printf("Output current limit set to: %f\n", current)
+		fmt.Printf("Output current set to: %f\n", current)
 
 		// Set output to true (enabling power output)
 		err = drok.SetOutput(drokDevice, true)
@@ -76,7 +76,7 @@ import (
 	"github.com/tarm/serial"
 )
 
-// ReadVoltage will read the voltage with a resolution of 2 decimal places
+// ReadVoltage will read the output voltage with a resolution of 2 decimal places
 func ReadVoltage(device *serial.Port) (float32, error) {
 	response, err := writeSerial(device, fmt.Sprintf("aru"))
 	if err != nil {
@@ -86,7 +86,7 @@ func ReadVoltage(device *serial.Port) (float32, error) {
 	return response, nil
 }
 
-// ReadCurrent will read the current with a resolution of 2 decimal places
+// ReadCurrent will read the output current with a resolution of 2 decimal places
 func ReadCurrent(device *serial.Port) (float32, error) {
 	response, err := writeSerial(device, fmt.Sprintf("ari"))
 	if err != nil {

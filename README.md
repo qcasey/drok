@@ -12,31 +12,64 @@ Thanks to Ben James for the [supplementary writeup](https://benjames.io/2018/06/
 Open a serial port @4800 baud and pass to the desired functions.
 
 ~~~~go
-import (
-   "fmt"
+package examples
 
-   drok "github.com/MrDoctorKovacic/drok"
-   "github.com/tarm/serial"
+import (
+    "fmt"
+
+    drok "github.com/MrDoctorKovacic/drok"
+    "github.com/tarm/serial"
 )
 
-c := &serial.Config{Name: "/dev/ttyUSB0", Baud: 4800}
-drokDevice, err := serial.OpenPort(c)
-if err != nil {
-    panic("Failed to open serial port")
-}
+func main() {
+    c := &serial.Config{Name: "/dev/ttyUSB0", Baud: 4800}
+    drokDevice, err := serial.OpenPort(c)
+    if err != nil {
+        panic("Failed to open serial port")
+    }
 
-// Read output current limit
-current, err := drok.ReadCurrent(drokDevice)
-if err != nil {
-    panic(err.Error())
-}
-fmt.Println("Output current limit set to: %f", current)
+    // Read output
+    isOn, err := drok.IsOn(drokDevice)
+    if err != nil {
+        panic(err.Error())
+    }
+    if isOn {
+        fmt.Println("DROK power supply is turned on")
+    } else {
+        fmt.Println("DROK power supply is turned off")
+    }
 
-// Set output voltage to 12.3v
-err = drok.SetVoltage(drokDevice, 12.3)
-if err != nil {
-    panic(err.Error())
+    // Read output voltage
+    voltage, err := drok.ReadVoltage(drokDevice)
+    if err != nil {
+        panic(err.Error())
+    }
+    fmt.Printf("Output voltage limit set to: %f\n", voltage)
+
+    // Read output current limit
+    current, err := drok.ReadCurrent(drokDevice)
+    if err != nil {
+        panic(err.Error())
+    }
+    fmt.Printf("Output current limit set to: %f\n", current)
+
+    // Set output voltage to 12.3v
+    err = drok.SetVoltage(drokDevice, 12.3)
+    if err != nil {
+        panic(err.Error())
+    }
+
+    // Set output voltage to 0.5v
+    err = drok.SetVoltage(drokDevice, 0.5)
+    if err != nil {
+        panic(err.Error())
+    }
+
+    // Set output current limit to 0.95A
+    err = drok.SetVoltage(drokDevice, 0.95)
+    if err != nil {
+        panic(err.Error())
+    }
+
 }
 ~~~~
-
-See the [examples](https://github.com/MrDoctorKovacic/drok/tree/master/examples) for more other uses like current / output

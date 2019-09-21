@@ -1,0 +1,18 @@
+language: go
+
+go:
+- "1.10"
+- 1.11
+- 1.12
+
+before_install:
+  - go get -u -v "github.com/tarm/serial"
+
+install:
+  - go get -t -v ./...
+
+notifications:
+  email:
+    recipients: quinn@quinncasey.com
+    on_success: change
+    on_failure: always

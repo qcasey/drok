@@ -1,7 +1,7 @@
 # drok
 
 [![GoDoc](https://godoc.org/github.com/qcasey/drok?status.svg)](http://godoc.org/github.com/qcasey/drok)
-[![Build Status](https://travis-ci.org/qcasey/drok.svg?branch=master)](https://travis-ci.org/qcasey/drok) [![Go Report Card](https://goreportcard.com/badge/github.com/qcasey/drok)](https://goreportcard.com/report/github.com/qcasey/drok)
+[![Go Report Card](https://goreportcard.com/badge/github.com/qcasey/drok)](https://goreportcard.com/report/github.com/qcasey/drok)
 
 A simple lib for interfacing with a variety of DROK Buck / Boost
 power supplies.
